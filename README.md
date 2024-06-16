@@ -85,13 +85,13 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 ## Screenshots
 
 ### Initial Population
-![Initial Population](Genetic/ScreenShots/Initial_Population.png)
+![Initial Population]([Genetic/ScreenShots/Initial_Population.png](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Initial_Population.png))
 
 ### Midway through Generations
-![Midway Generation](Genetic/ScreenShots/Midway_Population.png)
+![Midway Generation]([Genetic/ScreenShots/Midway_Population.png](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Midway_Population.png))
 
 ### Optimal Solution Found
-![Optimal Solution](Genetic/ScreenShots/Optimal_Population.png)
+![Optimal Solution]([Genetic/ScreenShots/Optimal_Population.png](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Optimal_Population.png))
 
 ## License
 
