@@ -2,7 +2,7 @@ import pygame
 import sys
 import random
 from connect_4 import *
-from genetic_pygame import *
+from genetic_pygame_utils import *
 
 # Initialize Pygame
 pygame.init()

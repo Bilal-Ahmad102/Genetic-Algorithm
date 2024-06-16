@@ -1,6 +1,6 @@
 import random
 from connect_4_utils import *
-from genetic_pygame import *
+from genetic_pygame_utils import *
 
 # Initialize the population with random boards
 def initialize_population(size):
