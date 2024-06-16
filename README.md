@@ -35,7 +35,7 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 
 1. Execute the main script:
    ```
-   python main.py
+   python genetic_game.py
    ```
 2. The Pygame window will open, displaying the evolution of the game states. The best fitness and generation number will be displayed on the screen.
 
