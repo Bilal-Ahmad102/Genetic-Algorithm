@@ -20,7 +20,7 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/connect4-genetic-algorithm.git
+   git clone https://github.com/Bilal-Ahmad102/Genetic-Algorithm
    ```
 2. Navigate to the project directory:
    ```
