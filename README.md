@@ -6,7 +6,7 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 
 ## Files and Directories
 
-- `main.py`: The main script that runs the genetic algorithm and displays the game state using Pygame.
+- `genetic_game.py`: The main script that runs the genetic algorithm and displays the game state using Pygame.
 - `connect_4_utils.py`: Utility functions for generating random game states and printing the board.
 - `genetic_pygame_utils.py`: Pygame utilities for drawing the Connect 4 grid and managing the display.
 - `README.md`: This readme file.
