@@ -24,7 +24,7 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
    ```
 2. Navigate to the project directory:
    ```
-   cd connect4-genetic-algorithm
+   cd Genetic-Algorithm
    ```
 3. Install the required dependencies:
    ```
