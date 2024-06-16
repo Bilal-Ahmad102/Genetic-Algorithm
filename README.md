@@ -85,17 +85,13 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 ## Screenshots
 
 ### Initial Population
-![Initial Population]([Genetic/ScreenShots/Initial_Population.png](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Initial_Population.png))
+![Initial Population](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Initial_Population.png)
 
 ### Midway through Generations
-![Midway Generation]([Genetic/ScreenShots/Midway_Population.png](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Midway_Population.png))
+![Midway Generation](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Midway_Population.png)
 
 ### Optimal Solution Found
-![Optimal Solution]([Genetic/ScreenShots/Optimal_Population.png](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Optimal_Population.png))
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+![Optimal Solution](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Optimal_Population.png)
 
 ## Acknowledgements
 
@@ -104,4 +100,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For any inquiries or suggestions, please contact [your email].
+For any inquiries or suggestions, please contact [ba2736180@gmail.com].
