@@ -1,19 +1,11 @@
-import pygame
 import sys
 import random
 from connect_4 import *
 from genetic_pygame_utils import *
+import pyglet as pg
 
-# Initialize Pygame
-pygame.init()
-
-
-# Set up the display
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("7x6 Circle Grid")
-
-# Define font
-font = pygame.font.SysFont(None, 36)
+# Initialize the gridcd
+grid = Connect4Grid(900, 700)
 
 # Parameters for Genetic Algorithm
 population_size = 100
@@ -25,24 +17,25 @@ mutation_prob = 0.1
 population = initialize_population(population_size)
 
 # Main game loop
-running = True
 generation = 0
 best_board = None
+best_fitness = 0
 optimal_found = False
 
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-    
+def update(dt):
+    global generation, best_board, best_fitness, optimal_found, population
+
+    if  optimal_found:
+        return
+
     # Run one generation of Genetic Algorithm
     fitnesses = [fitness(board) for board in population]
     
     if max(fitnesses) == 42:
         print("Optimal solution found!")
         optimal_found = True
-        break  # Solution found
-    
+        return
+
     parents = select_parents(population, fitnesses)
     next_population = []
     for i in range(0, population_size, 2):
@@ -57,56 +50,15 @@ while running:
     population = [mutate(board) if random.random() < mutation_prob else board for board in next_population]
     
     # Find best board in current generation
-    best_fitness = 0
-    for board in population:
-        current_fitness = fitness(board)
-        if current_fitness > best_fitness:
-            best_fitness = current_fitness
-            best_board = board
-
-    # Fill the screen with the background color
-    screen.fill(BACKGROUND_COLOR)
-
-    # Draw the grid
-    draw_grid(best_board)
-
-    # Display generation number and best fitness
-    text = font.render(f"Generation: {generation + 1} ", True, FONT_COLOR)
-    screen.blit(text, (10, 10))
-    text = font.render(f"Best Fitness: {best_fitness}", True, FONT_COLOR)
-    screen.blit(text, (240, 10))
-
-    # Update the display
-    pygame.display.flip()
-
+    best_fitness = max(fitnesses)
+    best_board = population[fitnesses.index(best_fitness)]
+    
+    # Update the grid
+    grid.update(generation, best_fitness)
+    grid.draw_grid(best_board)
+    
     generation += 1
 
-    # Add time delay
-    pygame.time.delay(200)  # Delay for 200 milliseconds (0.2 seconds)
-
-if optimal_found:
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                sys.exit()
-
-        # Fill the screen with the background color
-        screen.fill(BACKGROUND_COLOR)
-
-        # Draw the grid
-        draw_grid(best_board)
-
-        # Display generation number and best fitness
-        text = font.render(f"Optimal solution found!", True, FONT_COLOR)
-        screen.blit(text, (10, 10))
-
-        # Update the display
-        pygame.display.flip()
-
-        # Add time delay to prevent high CPU usage
-        pygame.time.delay(100)
-
-# Quit Pygame
-pygame.quit()
-sys.exit()
+if __name__ == "__main__":
+    pg.clock.schedule_interval(update, 1/120.0)
+    grid.run()

@@ -1,6 +1,5 @@
 import random
 from connect_4_utils import *
-from genetic_pygame_utils import *
 
 # Initialize the population with random boards
 def initialize_population(size):
@@ -48,66 +47,3 @@ def mutate(board):
         
     return board
 
-# Genetic Algorithm
-def genetic_algorithm(population_size, generations, crossover_prob, mutation_prob):
-    population = initialize_population(population_size)
-    print("Initial population:")
-    for i in population:
-        draw_grid(i)
-    
-    for generation in range(generations):
-        print(f"\nGeneration {generation + 1}")
-        fitnesses = [fitness(board) for board in population]
-        
-        if max(fitnesses) == 41:
-            print("Optimal solution found!")
-            break  # Solution found
-        
-        for idx, board in enumerate(population):
-            print(f"Board {idx + 1} Fitness: {fitnesses[idx]}")
-            printState(board)
-        
-        # Selection
-        parents = select_parents(population, fitnesses)
-        
-        # Crossover
-        next_population = []
-        for i in range(0, population_size, 2):
-            parent1, parent2 = parents[i], parents[i + 1]
-            if random.random() < crossover_prob:
-                child1, child2 = crossover(parent1, parent2)
-            else:
-                child1, child2 = parent1, parent2
-            next_population.append(child1)
-            next_population.append(child2)
-        
-        # Mutation
-        population = [mutate(board) if random.random() < mutation_prob else board for board in next_population]
-    
-    # Final best solution
-    best_fitness = 0
-    best_board = None
-    for board in population:
-        current_fitness = fitness(board)
-        
-        if current_fitness > best_fitness:
-            best_fitness = current_fitness
-            best_board = board
-    
-    return best_board
-
-# Parameters
-population_size = 100
-generations = 1000
-crossover_prob = 0.7
-mutation_prob = 0.1
-
-# Running the Genetic Algorithm
-# best_board = genetic_algorithm(population_size, generations, crossover_prob, mutation_prob)
-# print(f"Best board state found, Fitness{fitness(best_board)}:")
-# printState(best_board)
-
-# board = initialize_population(5)
-# for i in board:
-#     print(f"Board fitness {fitness(i)}:\n")
-#     printBoard(i)
