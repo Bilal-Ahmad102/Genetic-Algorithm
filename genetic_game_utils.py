@@ -3,10 +3,12 @@ from pyglet.gl import *
 from pyglet import shapes
 from connect_4_utils import generateRandomState
 from colors_combinations import selected_theme
+from pyglet.gl import Config
 
 class Connect4Grid:
     def __init__(self, width, height):
-        self.window = pyglet.window.Window(width, height, "7x6 Circle Grid")
+        config = Config(sample_buffers=1,samples=5,double_buffer=True)
+        self.window = pyglet.window.Window(width, height, "Genetic Algorithm",config=config)
         self.batch = pyglet.graphics.Batch()
         self.label_batch = pyglet.graphics.Batch()
         self.shapes = []

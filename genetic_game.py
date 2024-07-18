@@ -1,14 +1,14 @@
 import sys
 import random
 from connect_4 import *
-from genetic_pygame_utils import *
+from genetic_game_utils import *
 import pyglet as pg
 
 # Initialize the gridcd
 grid = Connect4Grid(900, 700)
 
 # Parameters for Genetic Algorithm
-population_size = 100
+population_size = 1000
 generations = 1000
 crossover_prob = 0.7
 mutation_prob = 0.1

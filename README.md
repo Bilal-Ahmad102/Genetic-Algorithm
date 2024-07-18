@@ -6,15 +6,16 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 
 ## Files and Directories
 
-- `genetic_game.py`: The main script that runs the genetic algorithm and displays the game state using Pygame.
+- `genetic_game.py`: The main script that runs the genetic algorithm and displays the game state using Pyglet.
+- `connect_4.py`: Contains the core genetic algorithm functions.
 - `connect_4_utils.py`: Utility functions for generating random game states and printing the board.
-- `genetic_pygame_utils.py`: Pygame utilities for drawing the Connect 4 grid and managing the display.
+- `genetic_game_utils.py`: Pyglet utilities for drawing the Connect 4 grid and managing the display.
 - `README.md`: This readme file.
 
 ## Requirements
 
 - Python 3.6 or higher
-- Pygame
+- Pyglet
 
 ## Installation
 
@@ -28,7 +29,7 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
    ```
 3. Install the required dependencies:
    ```
-   pip install pygame
+   pip install pyglet
    ```
 
 ## Running the Project
@@ -37,7 +38,7 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
    ```
    python genetic_game.py
    ```
-2. The Pygame window will open, displaying the evolution of the game states. The best fitness and generation number will be displayed on the screen.
+2. The Pyglet window will open, displaying the evolution of the game states. The best fitness and generation number will be displayed on the screen.
 
 ## Genetic Algorithm Components
 
@@ -61,19 +62,15 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 
 - `mutate(board)`: Randomly mutates a single position on the board.
 
-### Genetic Algorithm Execution
-
-- `genetic_algorithm(population_size, generations, crossover_prob, mutation_prob)`: Runs the genetic algorithm for a specified number of generations.
-
-## Pygame Display
+## Pyglet Display
 
 ### Drawing the Grid
 
-- `draw_grid(state)`: Draws the Connect 4 grid with the current game state on the Pygame window.
+- `draw_grid(state)`: Draws the Connect 4 grid with the current game state on the Pyglet window.
 
 ### Displaying Information
 
-- The generation number and best fitness are displayed at the top of the Pygame window.
+- The generation number and best fitness are displayed at the top of the Pyglet window.
 
 ## Parameters
 
@@ -83,7 +80,6 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 - `mutation_prob`: Probability of performing mutation.
 
 ## Screenshots
-
 ### Initial Population
 ![Initial Population](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Initial_Population.png)
 
@@ -93,10 +89,11 @@ This project implements a genetic algorithm to find an optimal or near-optimal s
 ### Optimal Solution Found
 ![Optimal Solution](https://github.com/Bilal-Ahmad102/Genetic-Algorithm/blob/main/ScreenShots/Optimal_Population.png)
 
+
+
 ## Acknowledgements
 
-- Pygame: For providing the library to create the graphical interface.
-- OpenAI: For the inspiration and tools to implement the genetic algorithm.
+- Pyglet: For providing the library to create the graphical interface.
 
 ## Contact
 
