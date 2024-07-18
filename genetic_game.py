@@ -25,7 +25,7 @@ optimal_found = False
 def update(dt):
     global generation, best_board, best_fitness, optimal_found, population
 
-    if  optimal_found:
+    if  optimal_found or generation >= generations:
         return
 
     # Run one generation of Genetic Algorithm
@@ -34,6 +34,7 @@ def update(dt):
     if max(fitnesses) == 42:
         print("Optimal solution found!")
         optimal_found = True
+        grid.gen_label.text = f"Optimal Solution Found in {generation}th Generation"
         return
 
     parents = select_parents(population, fitnesses)
@@ -50,8 +51,12 @@ def update(dt):
     population = [mutate(board) if random.random() < mutation_prob else board for board in next_population]
     
     # Find best board in current generation
-    best_fitness = max(fitnesses)
-    best_board = population[fitnesses.index(best_fitness)]
+    best_fitness = 0
+    for board in population:
+        curr_fitness = fitness(board)
+        if curr_fitness > best_fitness:
+            best_fitness = curr_fitness
+            best_board = board
     
     # Update the grid
     grid.update(generation, best_fitness)

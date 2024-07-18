@@ -26,7 +26,7 @@ color_themes = {
         "EMPTY_COLOR": (255, 255, 255),  # White
         "X_COLOR": (220, 20, 60),  # Crimson
         "O_COLOR": (255, 165, 0),  # Orange
-        "BORDER_COLOR": (70, 130, 180)  # Steel Blue
+        "BORDER_COLOR": (65, 105, 225)  # Royal Blue
     },
     "Pastel": {
         "GRID_COLOR": (176, 196, 222),  # Light Steel Blue

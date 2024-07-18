@@ -13,7 +13,8 @@ class Connect4Grid:
         self.labels = []
         self.generation_num = 0
         self.best_one = 0
-        
+        self.gen_label = None  # New attribute for the generation/best one label
+
         # Constants
         self.WIDTH, self.HEIGHT = width, height
         self.ROWS, self.COLS = 6, 7
@@ -68,6 +69,21 @@ class Connect4Grid:
     
         # Draw grid background
         self.shapes.append(shapes.Rectangle(grid_x, grid_y, grid_width, grid_height, color=self.GRID_COLOR, batch=self.batch))
+
+        if self.gen_label is None:
+            self.gen_label = pyglet.text.Label(
+                f"Generation : {self.generation_num}     Best One : {self.best_one}", 
+                font_name=self.font, 
+                font_size=self.font_size,
+                color=self.FONT_COLOR + (255,), 
+                x=self.WIDTH/2, 
+                y=self.HEIGHT-self.HEIGHT/17.5,
+                anchor_x='center', 
+                anchor_y='center', 
+                batch=self.label_batch
+            )
+        else:
+            self.gen_label.text = f"Generation : {self.generation_num}     Best One : {self.best_one}"
         
         # Draw the circles
         for row in range(self.ROWS):
@@ -87,22 +103,17 @@ class Connect4Grid:
         column_labels = 'ABCDEFG'
         for col in range(self.COLS):
             label_x = grid_x + (col + 0.5) * (grid_width / self.COLS)
-            label_y = grid_y + grid_height +20+ self.font_size / 2
+            label_y = grid_y + grid_height +self.HEIGHT/23+ self.font_size / 2
             self.labels.append(pyglet.text.Label(column_labels[col], font_name=self.font, font_size=self.font_size,
                                                 color=self.FONT_COLOR + (255,), x=label_x, y=label_y,
                                                 anchor_x='center', anchor_y='center', batch=self.label_batch))
         
         # Draw the row labels (1-6)
         for row in range(self.ROWS):
-            label_x = grid_x - 10-self.font_size / 2
+            label_x = grid_x - self.WIDTH/30 -self.font_size / 2
             label_y = grid_y + (row + 0.5) * (grid_height / self.ROWS)
             self.labels.append(pyglet.text.Label(str(self.ROWS - row), font_name=self.font, font_size=self.font_size,
                                                  color=self.FONT_COLOR + (255,), x=label_x, y=label_y,
-                                                 anchor_x='center', anchor_y='center', batch=self.label_batch))
-        print("pl")
-        self.labels.append(pyglet.text.Label(f"Generation : {self.generation_num}     Best One : {self.best_one}", 
-                                             font_name=self.font, font_size=self.font_size,
-                                                 color=self.FONT_COLOR + (255,), x=self.WIDTH/2, y=self.HEIGHT-40,
                                                  anchor_x='center', anchor_y='center', batch=self.label_batch))
 
     def on_draw(self):
@@ -110,9 +121,12 @@ class Connect4Grid:
         self.batch.draw()
         self.label_batch.draw()
     
-    def update(self,gen_num,best_one):
+    def update(self, gen_num, best_one):
         self.generation_num = gen_num
         self.best_one = best_one
+        # Update the label text here as well
+        if self.gen_label:
+            self.gen_label.text = f"Generation : {self.generation_num}     Best One : {self.best_one}"
 
     def run(self):
         pyglet.app.run()
